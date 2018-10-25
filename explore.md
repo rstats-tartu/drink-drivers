@@ -13,13 +13,12 @@ library(skimr)
 ## Import dataset
 
 Here we use `fread` function from **data.table** library because we have
-no idea what delimiters are being used in this file (don’t trust file
-extension). We need to step back to project root (../) because we are
-now in R
-subfolder
+no idea what delimiters are being used in this file (we cannot trust
+file extension) and `fread` has automatic delimiter detection.
 
 ``` r
-violations <- data.table::fread("../data/liiklusjarelevalve_3.csv") %>% as_data_frame()
+violations <- data.table::fread("data/liiklusjarelevalve_3.csv") %>% 
+  as_data_frame()
 violations
 ```
 
@@ -46,7 +45,8 @@ violations
 
 ## Explore
 
-Let’s have a look how this dataset looks like and what variables it has
+Let’s have a look how this dataset looks like and what kind of variables
+it has in it.
 
 ``` r
 skim(violations)
@@ -115,8 +115,12 @@ colnames(violations) <- c("case_id", "date", "time", "weekday", "legislative_act
   "section_title", "subsection", "clause", "violated_point_of_law", "county",
   "municipality", "district", "road_type", "road_name", "km", "lest_x", 
   "lest_y", "car_type", "reg_country", "car_make", "car_year", "sex", "age", "residence", "offence")
-write_csv(violations, "../output/traffic_supervision.csv")
+write_csv(violations, "output/traffic_supervision.csv")
+```
 
+Print out table with English names
+
+``` r
 violations
 ```
 
@@ -139,3 +143,45 @@ violations
     ## #   km <int>, lest_x <chr>, lest_y <chr>, car_type <chr>,
     ## #   reg_country <chr>, car_make <chr>, car_year <chr>, sex <chr>,
     ## #   age <chr>, residence <chr>, offence <chr>
+
+Skim
+
+``` r
+skim(violations)
+```
+
+    ## Skim summary statistics
+    ##  n obs: 139028 
+    ##  n variables: 26 
+    ## 
+    ## ── Variable type:character ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    ##               variable missing complete      n min max  empty n_unique
+    ##                    age       0   139028 139028   0   5   1054       10
+    ##               car_make       0   139028 139028   0 128  21175      257
+    ##               car_type       0   139028 139028   0  14  19043       18
+    ##               car_year       0   139028 139028   0   4  29724       43
+    ##                case_id       0   139028 139028  36  36      0   128229
+    ##                 clause       0   139028 139028  20  20      0        4
+    ##                 county       0   139028 139028   0  18    162       16
+    ##                   date       0   139028 139028  10  10      0      366
+    ##               district       0   139028 139028   0  23    162     1146
+    ##        legislative_act       0   139028 139028  13  17      0        2
+    ##                 lest_x       0   139028 139028   0  15      1      446
+    ##                 lest_y       0   139028 139028   0  13      3      682
+    ##           municipality       0   139028 139028   0  18    162      239
+    ##                offence       0   139028 139028   2   2      0        2
+    ##            reg_country       0   139028 139028   0   3  18807        3
+    ##              residence       0   139028 139028   0   3 117815        3
+    ##              road_name       0   139028 139028   0  49   4240     2599
+    ##              road_type       0   139028 139028   3   3      0        2
+    ##                section       0   139028 139028   6   9      0       59
+    ##          section_title       0   139028 139028  31 183      0       59
+    ##                    sex       0   139028 139028   0   1   1055        4
+    ##             subsection       0   139028 139028   0   6  15890        5
+    ##                   time       0   139028 139028   0   5    336     1441
+    ##  violated_point_of_law       0   139028 139028   0  47   6217     1550
+    ##                weekday       0   139028 139028   8  10      0        7
+    ## 
+    ## ── Variable type:integer ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    ##  variable missing complete      n  mean    sd p0 p25 p50 p75 p100     hist
+    ##        km   91203    47825 139028 53.75 60.45  0  10  27  75  287 ▇▂▁▁▁▁▁▁
