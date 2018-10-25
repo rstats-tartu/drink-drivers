@@ -11,7 +11,7 @@
 library(tidyverse)
 library(skimr)
 
-#' ## Import dataset. 
+#' ## Import dataset
 #' Here we use `fread` function from **data.table** library 
 #' because we have no idea what delimiters are being used in this file 
 #' (don't trust file extension).
@@ -19,12 +19,12 @@ library(skimr)
 violations <- data.table::fread("../data/liiklusjarelevalve_3.csv") %>% as_data_frame()
 violations
 
-#' ## Explore little
+#' ## Explore
 #' Let's have a look how this dataset looks like and what variables it has
 skim(violations)
 
 
-#' ## Translate variable names to english
+#' ## Translate variable names to English
 #' We have mostly character data and we need to translate variable names to English.
 #' 
 colnames(violations)
