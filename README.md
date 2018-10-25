@@ -1,2 +1,2 @@
-# drink-drivers
+# Traffic violations
 Liiklusjärelevalve käigus avastatud süüteod
