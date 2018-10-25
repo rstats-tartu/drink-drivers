@@ -107,8 +107,11 @@ colnames(violations)
     ## [22] "SoidukVlAasta"    "RikkujaSugu"      "RikkujaVanus"    
     ## [25] "RikkujaElukoht"   "SyyteoLiik"
 
-Liiklusseadus = Traffic Act väärtegu =
+  - Liiklusseadus = Traffic Act
+  - väärtegu =
 misdemeanour
+
+<!-- end list -->
 
 ``` r
 colnames(violations) <- c("case_id", "date", "time", "weekday", "legislative_act", "section", 
@@ -118,7 +121,7 @@ colnames(violations) <- c("case_id", "date", "time", "weekday", "legislative_act
 write_csv(violations, "output/traffic_supervision.csv")
 ```
 
-Print out table with English names
+Print out table with English names:
 
 ``` r
 violations
@@ -144,7 +147,7 @@ violations
     ## #   reg_country <chr>, car_make <chr>, car_year <chr>, sex <chr>,
     ## #   age <chr>, residence <chr>, offence <chr>
 
-Skim
+Skim again:
 
 ``` r
 skim(violations)

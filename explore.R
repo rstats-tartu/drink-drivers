@@ -27,18 +27,18 @@ skim(violations)
 #' We have mostly character data and we need to translate variable names to English.
 #' 
 colnames(violations)
-#' Liiklusseadus = Traffic Act
-#' väärtegu = misdemeanour
+#' - Liiklusseadus = Traffic Act
+#' - väärtegu = misdemeanour
 colnames(violations) <- c("case_id", "date", "time", "weekday", "legislative_act", "section", 
   "section_title", "subsection", "clause", "violated_point_of_law", "county",
   "municipality", "district", "road_type", "road_name", "km", "lest_x", 
   "lest_y", "car_type", "reg_country", "car_make", "car_year", "sex", "age", "residence", "offence")
 write_csv(violations, "output/traffic_supervision.csv")
 
-#' Print out table with English names
+#' Print out table with English names:
 violations
 
-#' Skim
+#' Skim again:
 skim(violations)
 
 
