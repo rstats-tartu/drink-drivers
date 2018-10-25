@@ -10,7 +10,7 @@ library(tidyverse)
 library(skimr)
 ```
 
-## Import dataset.
+## Import dataset
 
 Here we use `fread` function from **data.table** library because we have
 no idea what delimiters are being used in this file (don’t trust file
@@ -44,7 +44,7 @@ violations
     ## #   SoidukVlAasta <chr>, RikkujaSugu <chr>, RikkujaVanus <chr>,
     ## #   RikkujaElukoht <chr>, SyyteoLiik <chr>
 
-## Explore little
+## Explore
 
 Let’s have a look how this dataset looks like and what variables it has
 
@@ -88,7 +88,7 @@ skim(violations)
     ##  variable missing complete      n  mean    sd p0 p25 p50 p75 p100     hist
     ##        KM   91203    47825 139028 53.75 60.45  0  10  27  75  287 ▇▂▁▁▁▁▁▁
 
-## Translate variable names to english
+## Translate variable names to English
 
 We have mostly character data and we need to translate variable names to
 English.
