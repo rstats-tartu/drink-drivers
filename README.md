@@ -1,2 +1,2 @@
 # Traffic violations
-Liiklusjärelevalve käigus avastatud süüteod
+Road traffic offences discovered during traffic supervision in Estonia.
